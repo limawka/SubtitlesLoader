@@ -32,7 +32,7 @@ namespace SubtitlesLoader
             
             try
             {
-                html = ApiServices.GetSubtitles(@"\\10.162.0.40\home\movie\Kikis.Delivery.Service.1989.1080p.BluRay.H264.AAC-RARBG\Kikis.Delivery.Service.1989.1080p.BluRay.H264.AAC-RARBG.mp4");
+                html = ApiServices.GetSubtitles($@"Z:\dane\Filmy\A Beautiful Mind (2001) [1080p]\A Beautiful Mind (2001) [1080p].mp4");
             }
             catch (Exception ex) { 
                 html = ex.ToString();

@@ -56,23 +56,43 @@ namespace SubtitlesLoader
             if (subtitlesList == null)
                 throw new Exception("Could not parse subtitles list");
 
-            return subtitlesList[0].ToString();
+            Dictionary<string, JsonElement>? subtitleInfo = JsonSerializer.Deserialize<Dictionary<string, JsonElement>>(subtitlesList[0].ToString());
+
+            if (subtitleInfo == null)
+                throw new Exception("zle");
+
+
+            if (!subtitleInfo.TryGetValue("id", out JsonElement subtitleId))
+                throw new Exception("zle");
+
+
+            return GetDownloadLink(subtitleId.ToString());
         }
 
-        private static string GetDownloadLink(int file_id)
+        private static string GetDownloadLink(string file_id)
         {
-            using var request = new HttpRequestMessage(HttpMethod.Post, DownloadUrl);
-            request.Headers.Add("Api-Key", "r0Bt86bXAfW5cs9tkUBuQta6TAQGNAap");
-            request.Headers.Add("Authorization", userData.token);
+            var client = new HttpClient();
+            var request = new HttpRequestMessage
+            {
+                Method = HttpMethod.Post,
+                RequestUri = new Uri("https://api.opensubtitles.com/api/v1/download"),
+                Headers =
+                {
+                    { "Api-Key", Properties.User.Default.ApiKey },
+                    { "Authorization", userData.token },
+                },
+                Content = new StringContent("{  \"file_id\": "+ file_id+"}")
 
-
-
-            return "";
+            };
+            HttpResponseMessage response = client.Send(request);
+            response.EnsureSuccessStatusCode();
+            return response.Content.ReadAsStringAsync().Result;
+             
         }
 
         public static string Search(string filepath)
         {
-            if(userData == null)
+            if (userData == null)
                 Login(Properties.User.Default.Username, Properties.User.Default.Password);
 
             if (userData == null)
@@ -84,7 +104,7 @@ namespace SubtitlesLoader
 
             using var request = new HttpRequestMessage(HttpMethod.Get, SubtitlesUrl + "?moviehash=" + movieHash + "&query=" + filename);
             request.Headers.Add("Api-Key", Properties.User.Default.ApiKey);
-            
+
             HttpClient client = new();
             HttpResponseMessage response = client.Send(request);
 
