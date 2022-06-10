@@ -69,9 +69,62 @@ namespace SubtitlesLoader
             return GetDownloadLink(subtitleId.ToString());
         }
 
+        public class DownloadContent
+        {
+            public int file_id { get; set; }
+        }
+
+        public class GetChar
+        {
+            public static char getChar_A()
+            {
+                return 'A';
+            }
+            public static char getChar_c()
+            {
+                return 'c';
+            }
+            public static char getChar_e()
+            {
+                return 'e';
+            }
+            public static char getChar_p()
+            {
+                return 'p';
+            }
+            public static char getChar_t()
+            {
+                return 't';
+            }
+            public static char getChar_star()
+            {
+                return '*';
+            }
+            public static char getChar_slash()
+            {
+                return '/';
+            }
+        }
         private static string GetDownloadLink(string file_id)
         {
             var client = new HttpClient();
+            DownloadContent downloadContent = new()
+            {
+                file_id = Int32.Parse(file_id)
+            };
+            string content1 = JsonSerializer.Serialize<DownloadContent>(downloadContent);
+            var content = new StringContent(content1, Encoding.UTF8, "application/json");
+            char A = GetChar.getChar_A();
+            char c = GetChar.getChar_c();
+            char e = GetChar.getChar_e();
+            char p = GetChar.getChar_p();
+            char t = GetChar.getChar_t();
+            char star = GetChar.getChar_star();
+            char slash = GetChar.getChar_slash();
+            char[] Accept_chars = { A, c, c, e, p, t };
+            char[] star_slash_star_chars = { star, slash, star };
+            string Accept = new string(Accept_chars);
+            string star_slash_star = new string(star_slash_star_chars);
             var request = new HttpRequestMessage
             {
                 Method = HttpMethod.Post,
@@ -80,10 +133,14 @@ namespace SubtitlesLoader
                 {
                     { "Api-Key", Properties.User.Default.ApiKey },
                     { "Authorization", userData.token },
+                    { Accept, star_slash_star }
+                    
                 },
-                Content = new StringContent("{  \"file_id\": "+ file_id+"}")
-
+                Content = content
             };
+            string a = request.Content.ReadAsStringAsync().Result;
+            string b = request.Headers.ToString();
+
             HttpResponseMessage response = client.Send(request);
             response.EnsureSuccessStatusCode();
             return response.Content.ReadAsStringAsync().Result;

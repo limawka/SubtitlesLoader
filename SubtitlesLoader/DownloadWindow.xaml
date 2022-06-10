@@ -8,7 +8,7 @@
         Title="DownloadWindow" Height="450" Width="800">
     <Grid>
         <ScrollViewer>
-            <TextBlock Name="result" TextWrapping="Wrap" Text="TextBlock" Width="445"/>
+            <TextBox Name="result" TextWrapping="Wrap" Text="TextBlock" Width="445"/>
         </ScrollViewer>
     </Grid>
 </Window>
