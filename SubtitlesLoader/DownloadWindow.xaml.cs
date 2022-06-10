@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -22,6 +26,23 @@ namespace SubtitlesLoader
         public DownloadWindow(string path)
         {
             InitializeComponent();
+            this.result.Text = path;
+
+            string html = "loading...";
+            
+            try
+            {
+                html = ApiServices.GetSubtitles(@"\\10.162.0.40\home\movie\Kikis.Delivery.Service.1989.1080p.BluRay.H264.AAC-RARBG\Kikis.Delivery.Service.1989.1080p.BluRay.H264.AAC-RARBG.mp4");
+            }
+            catch (Exception ex) { 
+                html = ex.ToString();
+            }
+            
+            result.Text = html;
+            
+
+
         }
+
     }
 }

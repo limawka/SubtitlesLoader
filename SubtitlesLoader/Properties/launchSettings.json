@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "SubtitlesLoader": {
+      "commandName": "Project",
+      "commandLineArgs": "123"
+    }
+  }
+}
