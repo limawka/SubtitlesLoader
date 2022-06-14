@@ -1,7 +1,7 @@
 # Subtitle loader
 
 Download subtitles based on movie file.
-Uses OpenSubtitles.com API. Requires an OpenSubtitle account to use. Subtitle search based on filename and calculated movie file hash.
+Uses OpenSubtitles.com API: https://opensubtitles.stoplight.io/docs/opensubtitles-api/e3750fd63a100-getting-started. Requires an OpenSubtitle account to use. Subtitle search based on filename and calculated movie file hash.
 
 ## Usage
 Open OpenSubtitles.exe to configure your account and preferred languages.
