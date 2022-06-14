@@ -26,6 +26,7 @@ namespace SubtitlesLoader
 
         private void Submit(object sender, RoutedEventArgs e)
         {
+            if (password.Password != "password")
             Properties.User.Default.Password = PasswordProtection.Protect(password.Password);
             Properties.User.Default.Save();
             this.Close();

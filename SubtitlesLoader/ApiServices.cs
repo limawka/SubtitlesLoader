@@ -83,6 +83,8 @@ namespace SubtitlesLoader
 
                 filename = file["file_name"].ToString();
 
+                filename = filename.Length > 0 ? filename : "subtitles.srt";
+
                 return file["file_id"].ToString();
             } catch (NullReferenceException)
             {
