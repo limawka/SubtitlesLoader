@@ -3,16 +3,16 @@
   <Profiles />
   <Settings>
     <Setting Name="Username" Type="System.String" Scope="User">
-      <Value Profile="(Default)">12313123</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Password" Type="System.String" Scope="User">
-      <Value Profile="(Default)">ftN2Pm3475j5NgP</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="ApiKey" Type="System.String" Scope="User">
-      <Value Profile="(Default)">r0Bt86bXAfW5cs9tkUBuQta6TAQGNAap</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Language" Type="System.String" Scope="User">
-      <Value Profile="(Default)">pl</Value>
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

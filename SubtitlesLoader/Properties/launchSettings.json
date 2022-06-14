@@ -2,7 +2,7 @@
   "profiles": {
     "SubtitlesLoader": {
       "commandName": "Project",
-      "commandLineArgs": "123"
+      "commandLineArgs": "\"C:\\Users\\Nina\\Desktop\\Doctor Sleep (2019) [1080p] [WEBRip] [5.1] [YTS.LT]\\Doctor.Sleep.2019.1080p.WEBRip.x264.AAC5.1-[YTS.LT].mp4\""
     }
   }
 }

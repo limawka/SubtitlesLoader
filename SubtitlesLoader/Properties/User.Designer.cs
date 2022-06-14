@@ -25,7 +25,7 @@ namespace SubtitlesLoader.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("12313123")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Username {
             get {
                 return ((string)(this["Username"]));
@@ -37,7 +37,7 @@ namespace SubtitlesLoader.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("ftN2Pm3475j5NgP")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Password {
             get {
                 return ((string)(this["Password"]));
@@ -49,7 +49,7 @@ namespace SubtitlesLoader.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("r0Bt86bXAfW5cs9tkUBuQta6TAQGNAap")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string ApiKey {
             get {
                 return ((string)(this["ApiKey"]));
@@ -61,7 +61,7 @@ namespace SubtitlesLoader.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("pl")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Language {
             get {
                 return ((string)(this["Language"]));
