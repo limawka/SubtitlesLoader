@@ -4,9 +4,34 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SubtitlesLoader"
+        xmlns:properties="clr-namespace:SubtitlesLoader.Properties"
         mc:Ignorable="d"
-        Title="ConfigWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="ConfigWindow" Height="300" Width="300">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.ColumnSpan="2">Your opensubtitles.com account data:</Label>
+        <Label Grid.Row="1">Username</Label>
+        <TextBox Text="{Binding Source={x:Static properties:User.Default}, Path=Username, Mode=TwoWay}" Grid.Row="1" Grid.Column="1" Margin="0,5,0,5" />
+        <Label Grid.Row="2">Password</Label>
+        <PasswordBox Name="password" Password="password" Grid.Row="2" Grid.Column="1" Margin="0,5,0,5" />
+        <Label Grid.Row="3" Grid.ColumnSpan="2">Configuration:</Label>
+        <Label Grid.Row="4">Languages:</Label>
+        <TextBox Text="{Binding Source={x:Static properties:User.Default}, Path=Language, Mode=TwoWay}" Grid.Row="4" Grid.Column="1" Margin="0,5,0,5" />
+        <Label Grid.Row="5" Grid.ColumnSpan="2" Content="Language codes seperated by comma (pl,en)"/>
+        <Grid Grid.Row="6" Grid.Column="1" VerticalAlignment="Bottom">
+            <Button Click="Submit" Margin="87,0,0,0">Save</Button>
+        </Grid>
     </Grid>
 </Window>

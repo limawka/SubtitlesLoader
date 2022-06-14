@@ -23,5 +23,12 @@ namespace SubtitlesLoader
         {
             InitializeComponent();
         }
+
+        private void Submit(object sender, RoutedEventArgs e)
+        {
+            Properties.User.Default.Password = PasswordProtection.Protect(password.Password);
+            Properties.User.Default.Save();
+            this.Close();
+        }
     }
 }

@@ -23,26 +23,20 @@ namespace SubtitlesLoader
     /// </summary>
     public partial class DownloadWindow : Window
     {
+        private string path;
         public DownloadWindow(string path)
         {
+            this.path = path;
             InitializeComponent();
-            this.result.Text = path;
-
-            string html = "loading...";
-            
-            try
-            {
-                html = ApiServices.GetSubtitles($@"Z:\dane\Filmy\A Beautiful Mind (2001) [1080p]\A Beautiful Mind (2001) [1080p].mp4");
-            }
-            catch (Exception ex) { 
-                html = ex.ToString();
-            }
-            
-            result.Text = html;
-            
-
-
         }
 
+        private async void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            result.Text = "Loading...";
+
+            string res = await ApiServices.GetSubtitles(path);
+            result.Text = res.ToString();
+
+        }
     }
 }

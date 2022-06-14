@@ -5,10 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SubtitlesLoader"
         mc:Ignorable="d"
-        Title="DownloadWindow" Height="450" Width="800">
+        Loaded="Window_Loaded"
+        Title="DownloadWindow" Height="168" Width="380">
     <Grid>
         <ScrollViewer>
-            <TextBox Name="result" TextWrapping="Wrap" Text="TextBlock" Width="445"/>
+            <TextBlock Name="result" TextWrapping="Wrap" Text="Working..." Width="260"/>
         </ScrollViewer>
     </Grid>
 </Window>
